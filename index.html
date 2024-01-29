@@ -1,383 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
-      rel="stylesheet" />
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
-      .container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 65px;
-        align-items: center;
-        justify-content: center;
-      }
-      .header {
-        width: 100%;
-        height: 80px;
-        background-color: black;
-        color: red;
-      }
-      .header-title {
-        display: inline-flex;
-        align-items: center;
-        gap: 24px;
-        margin: 28px auto 28px 92px;
-        color: #f00;
-        font-family: "DM Sans";
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 24px; /* 100% */
-      }
-      .hero-banner {
-        margin-top: -65px;
-        width: 100%;
 
-        position: relative;
-        background: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(0, 0, 0, 0.5) 100%
-          ),
-          url(<path-to-image>), lightgray 50% / cover no-repeat;
-      }
-      .hero-banner-image {
-        width: 100%;
-        height: auto;
-      }
-      .hero-banner-text {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        margin-left: 90px;
-        margin-top: 187px;
-        display: flex;
-        width: 628px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        margin-top: 259px;
-        margin-left: 90px;
-      }
-      .hero-banner-text-header {
-        color: #fff;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="image/icons8-favorite-color-pixels-32.png">
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>MyNetflix</title>
+</head>
 
-        font-family: "DM Sans";
-        font-size: 48px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 56px;
-        width: 612px;
-      }
-      .hero-banner-text-paragraph {
-        width: 302px;
-        color: #fff;
-
-        font-family: "DM Sans";
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 18px;
-      }
-      .hero-banner-text-button {
-        display: flex;
-        padding: 6px 16px;
-        align-items: center;
-        gap: 8px;
-        border-radius: 6px;
-        background: var(--rose-700, #be123c);
-      }
-      .hero-banner-text-button button {
-        color: #fff;
-        font-family: "DM Sans";
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 24px; /* 171.429% */
-        text-transform: uppercase;
-        background: none;
-        border: none;
-      }
-      .search-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .search-section-searchbar {
-        display: flex;
-        width: 525px;
-        padding: 6px 10px;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: 6px;
-        border: 2px solid #b91c1c;
-      }
-      .search-section-searchbar input {
-        color: #000;
-        font-family: "DM Sans";
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 24px; /* 150% */
-        border: none;
-        outline: none;
-      }
-      .search-section-searchbar svg {
-        cursor: pointer;
-      }
-      .search-section-searched-item {
-        margin-top: 82px;
-        display: flex;
-        gap: 51.06px;
-      }
-      .search-section-searched-item-image {
-        width: 476px;
-        height: 335.125px;
-        flex-shrink: 0;
-      }
-      .search-section-searched-item-text {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .search-section-searched-item-text-title {
-        display: inline-flex;
-        padding: 10px;
-        align-items: flex-start;
-        gap: 10px;
-        color: #000000;
-        margin-top: 115px;
-      }
-      .search-section-searched-item-text-title p {
-        color: #000;
-        font-family: Roboto;
-        font-size: 40px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 125.188%; /* 50.075px */
-      }
-      .search-section-searched-item-text-category {
-        margin-left: 10px;
-        color: #b91c1c;
-        font-family: Roboto;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        width: 249px;
-      }
-      .search-section-searched-item-text-info {
-        margin-left: 12px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-        width: 721px;
-        height: 108px;
-        flex-shrink: 0;
-        color: #000;
-        font-family: Roboto;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
-      .recommended-section {
-        margin: 0 98px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
-      .recommended-section-title {
-        display: flex;
-        width: 1244px;
-        justify-content: space-between;
-        align-items: center;
-        color: #000000;
-      }
-      .recommended-section-title p {
-        color: #000;
-        font-family: "DM Sans";
-        font-size: 36px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-      }
-      .slider {
-        margin-top: 44px;
-        width: 100%;
-        height: 100%;
-      }
-      .splide__list {
-        gap: 50px;
-      }
-
-      .splide__slide {
-        /* width: 100%; */
-        height: auto;
-        /* text-align: center; */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        position: relative;
-      }
-
-      .splide-slide-overlay {
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin-top: 20px;
-        margin-right: 21px;
-        /* border: ; */
-      }
-      .favourite-btn {
-        width: 30px;
-        height: 30px;
-        flex-shrink: 0;
-        padding: 4.87px;
-        /* border: 2px solid white; */
-        border-radius: 50%;
-        background-color: rgba(243, 244, 246, 0.5);
-
-        backdrop-filter: blur(5px);
-        cursor: pointer;
-      }
-      .item-image {
-        width: 250px;
-        height: 370px;
-      }
-
-      .favourite-section-title {
-        display: flex;
-        width: 1244px;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .favourite-section-title p {
-        color: #000;
-        font-family: "DM Sans";
-        font-size: 36px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <p class="header-title">Netflix</p>
-      </div>
-      <div class="hero-banner">
-        <img
-          src="Images/Poster.png"
-          class="hero-banner-image"
-          alt="Hero Banner" />
-        <div class="hero-banner-text">
-          <div class="hero-banner-text-header">John Wick 3 : Parabellum</div>
-          <div class="hero-banner-text-paragraph">
-            John Wick is on the run after killing a member of the international
-            assassins' guild, and with a $14 million price tag on his head, he
-            is the target of hit men and women everywhere.
-          </div>
-          <div class="hero-banner-text-button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM9.5547 7.16795C9.24784 6.96338 8.8533 6.94431 8.52814 7.11833C8.20298 7.29235 8 7.63121 8 8V12C8 12.3688 8.20298 12.7077 8.52814 12.8817C8.8533 13.0557 9.24784 13.0366 9.5547 12.8321L12.5547 10.8321C12.8329 10.6466 13 10.3344 13 10C13 9.66565 12.8329 9.35342 12.5547 9.16795L9.5547 7.16795Z"
-                fill="white" />
-            </svg>
-            <button>Watch Trailer</button>
-          </div>
+<body>
+    <nav>
+        <p>Netflix</p>
+    </nav>
+    <section class="hero">
+        <img src="Images/Poster.png" alt="" srcset="">
+        <div class="hero-text">
+            <h1>John Wick 3 : Parabellum</h1>
+            <p>John Wick is on the run after killing a member of the international assassins' guild, and with a $14
+                million price tag
+                on his head, he is the target of hit men and women everywhere.</p>
+            <button title="my-btn" class="btn">
+                <i class='bx bx-play'></i>&nbsp;
+                Watch trailer
+            </button>
         </div>
-      </div>
-      <div class="search-section">
-        <div class="search-section-searchbar">
-          <input
-            type="text"
-            placeholder="What do you want to watch"
-            id="search-bar" />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            class="search-btn">
-            <path
-              d="M14 14L10 10M11.3333 6.66667C11.3333 9.244 9.244 11.3333 6.66667 11.3333C4.08934 11.3333 2 9.244 2 6.66667C2 4.08934 4.08934 2 6.66667 2C9.244 2 11.3333 4.08934 11.3333 6.66667Z"
-              stroke="black"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
+    </section>
+    <section class="search-sec">
+        <form class="search-div">
+            <input placeholder="What do you want to search?" type="text" name="movie-search" id="movie-search"
+                title="search-movie" class="search-input">
+            <button class="search-div-button" title="button" type="submit"><i class='bx bx-search'></i></button>
+        </form>
+    </section>
+
+    <section class="fetched-movie">
+        <div class="movie-img-div">
+            <img src="Images/Thumbnails.png" class="search-poster" alt="">
         </div>
-        <div class="search-section-searched-item">
-          <img
-            src="Images/Thumbnails.png"
-            class="search-section-search-item-image"
-            alt="item-image" />
-          <div class="search-section-searched-item-text">
-            <div class="search-section-searched-item-text-title">
-              <p>Movie title</p>
-            </div>
-            <p class="search-section-searched-item-text-category">Category</p>
-            <div class="search-section-searched-item-text-info">
-              <p>Release Date</p>
-              <p>Description</p>
-            </div>
-          </div>
+        <div class="movie-details">
+            <h1 class="title">Movie title</h1>
+            <p class="category">Category</p>
+            <p class="relese-date">Release Date</p>
+            <p class="discription">Description</p>
         </div>
-      </div>
-      <div class="recommended-section">
-        <div class="recommended-section-title">
-          <p>Recommended Movies</p>
-        </div>
-        <!-- First slider -->
-        <div class="slider">
-          <div class="splide">
+    </section>
+
+
+
+    <section class="recmmd-movie">
+        <h1 class="recomm-title">Recommended Movies</h1>
+        <section class="splide" aria-label="Splide Basic HTML Example">
             <div class="splide__track">
-              <div class="splide__list"></div>
+                <ul class="splide__list my-ulList" data-ref="ul">
+                </ul>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="favourite-section">
-        <div class="favourite-section-title">
-          <p>Favourites List</p>
-        </div>
-        <div class="slider">
-          <div class="splide">
+        </section>
+    </section>
+
+
+    <section class="fav-list fav-slider recmmd-movie">
+        <h1 class="recomm-title">Favorites List</h1>
+        <section class="splide splider-two" aria-label="Splide Basic HTML Example">
             <div class="splide__track">
-              <div class="splide__list favourites-section"></div>
+                <ul class="splide__list">
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+        </section>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="script.js"></script>
+</body>
 
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-
-  <script src="script.js"></script>
 </html>
