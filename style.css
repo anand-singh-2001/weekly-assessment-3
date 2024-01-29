@@ -230,6 +230,9 @@ nav p {
 .li-image {
   width: 100%;
 }
+.splide__list {
+  gap: 70px;
+}
 
 .inside-li {
   width: 100%;

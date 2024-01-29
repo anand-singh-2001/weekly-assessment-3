@@ -62,6 +62,7 @@ fetch(url2, options2)
     });
     document.querySelector('ul[data-ref="ul"]').innerHTML = str;
     var splide = new Splide(".splide", {
+      type: "slide",
       width: "100%",
       perPage: 4,
       gap: "5em",
