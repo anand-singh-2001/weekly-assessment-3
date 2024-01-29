@@ -18,6 +18,8 @@ const optionsGenres = {
   },
 };
 
+// Getting all the genres:
+
 fetch(urlGenres, optionsGenres)
   .then((res) => res.json())
   .then((json) => {
